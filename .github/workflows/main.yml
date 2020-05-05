@@ -44,7 +44,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
-   - name: Check out code
+    - name: Check out code
       uses: actions/checkout@master
     - name: Build Hugo
       uses: lowply/build-hugo@v0.69.0
