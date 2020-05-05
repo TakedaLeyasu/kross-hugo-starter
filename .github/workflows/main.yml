@@ -50,3 +50,4 @@ jobs:
         ftp-server: ftp://wp1028492.server-he.de/
         ftp-username: ftp1028492-github
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./public
