@@ -1,11 +1,16 @@
-name: Build Hugo
-on: [push]
+on: push
+name: Publish Website
 jobs:
-  build:
-    name: Build
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@master
-    - name: Build Hugo
-      uses: lowply/build-hugo@v0.69.0
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.0
+      with:
+        ftp-server: ftp://wp1028492.server-he.de/
+        ftp-username: ftp1028492-github
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
