@@ -44,6 +44,9 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
+    - name: Action Hugo
+      uses: kevvurs/action-hugo@v1.0-rc2
+        
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.0
       with:
