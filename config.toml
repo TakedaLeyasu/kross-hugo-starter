@@ -1,4 +1,4 @@
-baseURL = "https://takedaleyasu.github.io/kross-hugo-starter/"
+baseURL = "https://neu.schmeling-fachwerk.de/"
 languageCode = "en-us"
 summaryLength = "10"
 theme = "kross-hugo"
