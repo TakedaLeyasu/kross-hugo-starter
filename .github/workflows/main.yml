@@ -1,25 +1,30 @@
-on: push
-name: Publish Website
+name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2.1.0
-      with:
-        fetch-depth: 2
-    - run: mkdir -p path/to/artifact
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-    - run: echo hello > path/to/artifact/world.txt
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.68.3'
+          # extended: true
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: path/to/artifact/world.txt
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.0
-      with:
-        ftp-server: ftp://wp1028492.server-he.de/
-        ftp-username: ftp1028492-github
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./public/
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
