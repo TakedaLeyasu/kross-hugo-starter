@@ -1,4 +1,4 @@
-baseURL = "https://neu.schmeling-fachwerk.de/"
+baseURL = "http://neu.schmeling-fachwerk.de/"
 languageCode = "en-us"
 summaryLength = "10"
 theme = "kross-hugo"
