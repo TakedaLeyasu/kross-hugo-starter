@@ -1,8 +1,9 @@
-baseURL = "/"
+baseURL = "https://takedaleyasu.github.io/kross-hugo-starter/"
 languageCode = "en-us"
 summaryLength = "10"
 theme = "kross-hugo"
 title = "Kross | Hugo Portfolio Template"
+publishDir = "./public"
 [[menu.main]]
 URL = "contact"
 name = "Contact"
